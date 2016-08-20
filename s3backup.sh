@@ -3,7 +3,8 @@
 source ./vars.sh
 
 #backup docroot
-BACKUP_FILES=$DOCROOT
+#This is not needed since my variables are called in the first line
+#BACKUP_FILES=$DOCROOT
 
 #make temp directory
 TEMP_DIR=$(mktemp -d)
@@ -15,7 +16,7 @@ DEST=$TEMP_DIR
 ARCHIVE_FILE="backup.tgz"
 
 #backup files using tar
-tar -czf $DEST/$ARCHIVE_FILE $BACKUP_FILES
+tar -czf $DEST/$ARCHIVE_FILE $DOCROOT ${DB_CONFIG[*]} ${WEB_SERVER_CONFIG[*]}
 
 #mysql backups
 NOW=$(date +%s)

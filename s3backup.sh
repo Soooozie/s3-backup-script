@@ -16,7 +16,7 @@ DEST=$TEMP_DIR
 ARCHIVE_FILE="backup.tgz"
 
 #backup files using tar
-tar -czf $DEST/$ARCHIVE_FILE $DOCROOT ${DB_CONFIG[*]} ${WEB_SERVER_CONFIG[*]}
+tar -czf $DEST/$ARCHIVE_FILE $DOCROOT ${DB_CONFIG[*]} ${WEB_SERVER_CONFIG[*]} $VARNISH $NGINX
 
 #mysql backups
 NOW=$(date +%s)
